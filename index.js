@@ -11,16 +11,14 @@ app.use(
 );
 
 const PORT = process.env.PORT || 3000;
-const URL = "mongodb://localhost:27017";
+const URL = process.env.MONGO_URL;
 
 app.get("/users", async (req, res) => {
   try {
-    console.log("cool");
     var client = await mongoClient.connect(URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log("here's the problem");
     let db = client.db("react_users");
     let usersData = await db
       .collection("users")
