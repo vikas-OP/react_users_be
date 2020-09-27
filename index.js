@@ -11,7 +11,7 @@ app.use(
 );
 
 const PORT = process.env.PORT || 3000;
-const URL = process.env.MONGO_URL;
+const URL = "mongodb://localhost:27017";
 
 app.get("/users", async (req, res) => {
   try {
